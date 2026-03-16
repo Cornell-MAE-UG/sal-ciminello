@@ -30,6 +30,10 @@ Next Year In: <span id="countdown">10</span>s
 
 <div id="stats"></div>
 
+<div class="climate-bar-container">
+  <div id="climateBar" class="climate-bar"></div>
+</div>
+
 <div class="actions">
 
 <button onclick="produce()">🍺 Produce Beer<br><span>Uses ingredients. Profit depends on quality.</span></button>
@@ -41,6 +45,8 @@ Next Year In: <span id="countdown">10</span>s
 <button onclick="research()">🧪 Climate Crop Research<br><span>Cost $300. Improves beer quality.</span></button>
 
 <button onclick="raisePrices()">💰 Raise Beer Prices<br><span>Earn $50 but quality drops slightly.</span></button>
+
+<button onclick="buyBrewery()">🏭 Build Brewery<br><span>Cost $500. Generates passive income each year.</span></button>
 
 </div>
 
@@ -65,6 +71,7 @@ let water = 100
 let barley = 100
 let hops = 100
 let climate = 0
+let breweries = 0
 
 let countdown = 10
 
@@ -72,6 +79,12 @@ function updateStats(){
 
 document.getElementById("year").innerText = year
 document.getElementById("countdown").innerText = countdown
+document.getElementById("climateBar").style.width = climate + "%"
+
+let qualityClass = "good"
+
+if(quality < 70) qualityClass = "medium"
+if(quality < 40) qualityClass = "bad"
 
 document.getElementById("stats").innerHTML = `
 <div class="stats">
@@ -83,7 +96,7 @@ document.getElementById("stats").innerHTML = `
 
 <div class="stat">
 <div class="label">Beer Quality</div>
-<div class="value">${Math.floor(quality)}</div>
+<div class="value ${qualityClass}">${Math.floor(quality)}</div>
 </div>
 
 <div class="stat">
@@ -104,6 +117,11 @@ document.getElementById("stats").innerHTML = `
 <div class="stat">
 <div class="label">Climate Stress</div>
 <div class="value">${Math.floor(climate)}</div>
+</div>
+
+<div class="stat">
+<div class="label">Breweries</div>
+<div class="value">${breweries}</div>
 </div>
 
 </div>
@@ -211,9 +229,30 @@ updateStats()
 
 }
 
+function buyBrewery(){
+
+if(money < 500){
+log("⚠️ Not enough money to build a brewery.")
+return
+}
+
+money -= 500
+breweries += 1
+
+log("🏭 Built a new brewery. Passive income increased.")
+
+updateStats()
+
+}
+
 function newYear(){
 
 year++
+money += breweries * 120
+
+if(breweries > 0){
+log(`🏭 Your ${breweries} breweries generated $${breweries*120}.`)
+}
 climate += 5
 
 water -= 5 + climate*0.05

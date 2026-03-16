@@ -21,6 +21,18 @@ background: white;
 
 }
 
+.value.good{
+color:#2e7d32;
+}
+
+.value.medium{
+color:#f9a825;
+}
+
+.value.bad{
+color:#c62828;
+}
+
 .game-header h1 { margin: 0 0 6px; }
 .muted { opacity: 0.7; font-size: 0.95rem; }
 
@@ -91,6 +103,21 @@ font-size:0.95rem;
   border-radius: 12px;
   background: rgba(0,0,0,0.04);
   margin-bottom: 10px;
+}
+
+.climate-bar-container{
+height:14px;
+background:rgba(0,0,0,0.1);
+border-radius:8px;
+overflow:hidden;
+margin-top:6px;
+}
+
+.climate-bar{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#4caf50,#ff9800,#e53935);
+transition:width 0.5s;
 }
 
 .log-box {
