@@ -1,0 +1,369 @@
+--- 
+--- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — Sal Ciminello</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #f9f8f6; --bg-card: #ffffff; --bg-muted: #f2f1ee;
+      --text: #1a1916; --text-2: #5a5851; --text-3: #9a9890;
+      --border: rgba(26,25,22,0.1); --border-md: rgba(26,25,22,0.18);
+      --radius: 12px;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.1rem 2.5rem;
+      background: rgba(249,248,246,0.92); backdrop-filter: blur(10px);
+      border-bottom: 0.5px solid var(--border);
+    }
+    .nav-logo { font-size: 14px; font-weight: 500; letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-size: 13px; color: var(--text-2); transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--text); font-weight: 500; }
+
+    /* CV LAYOUT */
+    .cv-wrap {
+      max-width: 860px; margin: 0 auto;
+      padding: 5rem 2.5rem 6rem;
+    }
+
+    /* HEADER */
+    .cv-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding-bottom: 2.5rem;
+      border-bottom: 0.5px solid var(--border-md);
+      margin-bottom: 3rem;
+    }
+    .cv-name { font-size: 2.4rem; font-weight: 300; letter-spacing: -0.025em; line-height: 1.1; }
+    .cv-name strong { font-weight: 500; }
+    .cv-title { font-size: 14px; color: var(--text-2); margin-top: 0.4rem; }
+    .cv-contact { text-align: right; font-size: 13px; color: var(--text-2); line-height: 2; }
+    .cv-contact a { color: var(--text-2); border-bottom: 0.5px solid var(--border-md); }
+    .cv-contact a:hover { color: var(--text); }
+    .cv-download {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 0.75rem;
+      font-size: 12px; font-weight: 500;
+      padding: 7px 14px;
+      border: 0.5px solid var(--border-md);
+      border-radius: 6px; color: var(--text);
+      transition: background 0.15s;
+    }
+    .cv-download:hover { background: var(--bg-muted); }
+
+    /* SECTIONS */
+    .cv-section { margin-bottom: 3rem; }
+    .cv-section-title {
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-3); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .cv-section-title::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+
+    /* EDUCATION + EXPERIENCE ENTRIES */
+    .cv-entry { margin-bottom: 1.75rem; }
+    .cv-entry-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 0.2rem; gap: 1rem;
+    }
+    .cv-entry-org { font-size: 15px; font-weight: 500; }
+    .cv-entry-date { font-size: 12px; color: var(--text-3); white-space: nowrap; }
+    .cv-entry-role { font-size: 14px; color: var(--text-2); margin-bottom: 0.6rem; font-style: italic; }
+    .cv-entry-gpa { font-size: 12px; color: var(--text-3); margin-bottom: 0.5rem; }
+    .cv-entry ul { padding-left: 1.2rem; }
+    .cv-entry li { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 0.25rem; }
+
+    /* COURSEWORK */
+    .course-group { margin-bottom: 1rem; }
+    .course-group-label { font-size: 12px; font-weight: 500; color: var(--text-3); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .course-list { font-size: 13px; color: var(--text-2); line-height: 1.75; }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .skill-group { }
+    .skill-group-label { font-size: 12px; font-weight: 500; color: var(--text-3); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag { font-size: 12px; padding: 3px 10px; background: var(--bg-muted); border-radius: 4px; color: var(--text-2); }
+
+    /* ACHIEVEMENTS */
+    .achievement-list { list-style: none; }
+    .achievement-list li { font-size: 14px; color: var(--text-2); line-height: 1.75; padding-left: 1rem; position: relative; margin-bottom: 0.25rem; }
+    .achievement-list li::before { content: '—'; position: absolute; left: 0; color: var(--text-3); }
+
+    footer { border-top: 0.5px solid var(--border); padding: 2rem 2.5rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-3); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--text-3); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 680px) {
+      .cv-header { flex-direction: column; gap: 1.5rem; }
+      .cv-contact { text-align: left; }
+      .cv-entry-header { flex-direction: column; gap: 0; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .cv-wrap { padding: 3rem 1.25rem 4rem; }
+      nav { padding: 1rem 1.25rem; }
+      .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Sal Ciminello</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="cv.html" class="active">CV</a>
+  </div>
+</nav>
+
+<div class="cv-wrap">
+
+  <!-- HEADER -->
+  <div class="cv-header">
+    <div>
+      <div class="cv-name">Salvatore <strong>Ciminello</strong></div>
+      <div class="cv-title">Mechanical &amp; Aerospace Engineer &nbsp;·&nbsp; Cornell University M.Eng</div>
+    </div>
+    <div class="cv-contact">
+      <a href="mailto:stc92@cornell.edu">stc92@cornell.edu</a><br>
+      +1 914 268-7025<br>
+      Mamaroneck, NY<br>
+      <a href="https://linkedin.com/in/salvatore-ciminello" target="_blank">LinkedIn</a>
+      &nbsp;·&nbsp;
+      <a href="https://github.com/stc92" target="_blank">GitHub</a><br>
+      <a href="assets/Ciminello_Sal_Resume.pdf" class="cv-download" target="_blank">↓ Download PDF</a>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="cv-section">
+    <div class="cv-section-title">Education</div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <div class="cv-entry-org">Cornell University</div>
+        <div class="cv-entry-date">Expected Dec 2026</div>
+      </div>
+      <div class="cv-entry-role">Master of Engineering, Aerospace Engineering</div>
+      <div class="cv-entry-gpa">GPA: 4.02 / 4.0</div>
+      <div class="course-group">
+        <div class="course-group-label">Coursework</div>
+        <div class="course-list">MAE 5160 Spacecraft Technology &amp; Systems Architecture, MAE 5230 Intermediate Fluid Dynamics w/ CFD, MAE 6030 Space Structures, MAE 6540 Plasma Propulsion, MAE 5730 Intermediate Dynamics</div>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <div class="cv-entry-org">Cornell University</div>
+        <div class="cv-entry-date">May 2026</div>
+      </div>
+      <div class="cv-entry-role">Bachelor of Science, Mechanical &amp; Aerospace Engineering</div>
+      <div class="cv-entry-gpa">GPA: 3.71 / 4.0</div>
+      <div class="course-group">
+        <div class="course-group-label">Advanced coursework</div>
+        <div class="course-list">MAE 4510 Propulsion of Aircrafts and Rockets, MAE 4021 Wind Power, MAE 3780 Mechatronics, MAE 3260 System Dynamics, MAE 3240 Heat Transfer, MAE 4272 Fluids &amp; Heat Transfer Lab, MAE 4300 Engineering Ethics</div>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <div class="cv-entry-org">Iona Preparatory School</div>
+        <div class="cv-entry-date">June 2022</div>
+      </div>
+      <div class="cv-entry-role">High School Diploma</div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="cv-section">
+    <div class="cv-section-title">Experience</div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <div class="cv-entry-org">Cornell Aerospace Adversary Lab</div>
+        <div class="cv-entry-date">Jan 2026 – Present</div>
+      </div>
+      <div class="cv-entry-role">M.Eng Researcher &nbsp;·&nbsp; AFRL-Funded CubeSat Constellation Testbed</div>
+      <ul>
+        <li>Developing structural design for a CubeSat constellation testbed supporting AFRL-funded research</li>
+        <li>Working on inter-satellite communication architecture and formation control algorithms</li>
+        <li>Integrating hardware and software systems for multi-satellite testbed validation</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <div class="cv-entry-org">Cornell Hyperloop</div>
+        <div class="cv-entry-date">Aug 2022 – May 2026</div>
+      </div>
+      <div class="cv-entry-role">Mechanical Team Lead</div>
+      <ul>
+        <li>Led ~40 engineers across six subteams: electromagnetic levitation, composites, magnetic braking, pneumatic braking, magnetic propulsion, and aeroshell manufacturing</li>
+        <li>Conducted original research into electromagnetic levitation, designing and validating a PID-controlled levitation system using ToF sensing and custom driver circuitry</li>
+        <li>Designed and built a passive stability system using a spring-damper caster mechanism to constrain pod roll about yaw and pitch axes</li>
+        <li>Modeled pod dynamics in MATLAB and designed controllers to maintain stable levitation height</li>
+        <li>Joined as a freshman on the magnetic braking subteam; rose to Mechanical Lead through consistent technical contribution</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <div class="cv-entry-org">Cornell MAE Department</div>
+        <div class="cv-entry-date">Aug 2025 – Present</div>
+      </div>
+      <div class="cv-entry-role">Teaching Assistant — Mechatronics &amp; System Dynamics</div>
+      <ul>
+        <li>TA for MAE 3780 Mechatronics and MAE 3260 System Dynamics</li>
+        <li>Supported students through lab sessions, office hours, and coursework covering embedded systems, control theory, and dynamic modeling</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <div class="cv-entry-org">Go2 (Co2Go) — Startup</div>
+        <div class="cv-entry-date">May 2025 – Present</div>
+      </div>
+      <div class="cv-entry-role">Co-founder &amp; Lead Product Engineer</div>
+      <ul>
+        <li>Co-founded a startup developing a portable carbonation device for consumer beverages</li>
+        <li>Handled all engineering: CAD in Fusion 360, FDM prototyping on Bambu P1S, and part drawings sent to overseas manufacturers</li>
+        <li>Designed patent-pending CO₂ canister with integrated pressure-relief mechanism</li>
+        <li>Built investor demo prototypes demonstrating device feasibility and manufacturing readiness</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <div class="cv-entry-org">Alpha Sigma Phi Fraternity — Cornell</div>
+        <div class="cv-entry-date">2024 – 2025</div>
+      </div>
+      <div class="cv-entry-role">Vice President</div>
+      <ul>
+        <li>Led executive board operations for a 30+ member organization</li>
+        <li>Coordinated budgeting, chapter events, philanthropy initiatives, and internal communications</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- PERSONAL PROJECTS -->
+  <div class="cv-section">
+    <div class="cv-section-title">Personal Projects</div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <div class="cv-entry-org">3 DOF Robotic Arm — V4</div>
+        <div class="cv-entry-date">2024 – Present</div>
+      </div>
+      <ul>
+        <li>Designed all links and joints in Fusion 360; 3D printed on Bambu Lab P1S</li>
+        <li>Raspberry Pi 5 controller with PCA9685 PWM driver over I2C; MG996R and SG90/MG90S servos</li>
+        <li>Implementing inverse kinematics in Python for Cartesian-space control</li>
+      </ul>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <div class="cv-entry-org">Autonomous Water Rescue Drone</div>
+        <div class="cv-entry-date">2025 – Present</div>
+      </div>
+      <ul>
+        <li>~24" quadcopter with life-ring form factor; extended F450 frame via custom 3D printed arm pieces</li>
+        <li>Holybro Pixhawk 6C Mini running ArduPilot; Raspberry Pi companion computer over MAVLink</li>
+        <li>High-level autonomy in Python via DroneKit/MAVSDK for waypoint navigation and autonomous deployment</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- SKILLS -->
+  <div class="cv-section">
+    <div class="cv-section-title">Skills</div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-label">CAD &amp; Simulation</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Autodesk Fusion 360</span>
+          <span class="skill-tag">SolidWorks</span>
+          <span class="skill-tag">ANSYS Fluent</span>
+          <span class="skill-tag">ANSYS Maxwell</span>
+          <span class="skill-tag">ANSYS Static Structural</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Programming</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">MATLAB</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">Arduino</span>
+          <span class="skill-tag">HTML / CSS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Hardware &amp; Electronics</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Raspberry Pi</span>
+          <span class="skill-tag">Pixhawk / ArduPilot</span>
+          <span class="skill-tag">I2C / PWM</span>
+          <span class="skill-tag">Circuit Design</span>
+          <span class="skill-tag">Soldering</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Fabrication</div>
+        <div class="skill-tags">
+          <span class="skill-tag">FDM 3D Printing</span>
+          <span class="skill-tag">Laser Cutting</span>
+          <span class="skill-tag">Mill &amp; Lathe</span>
+          <span class="skill-tag">Composites</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACHIEVEMENTS -->
+  <div class="cv-section">
+    <div class="cv-section-title">Achievements</div>
+    <ul class="achievement-list">
+      <li>5th place, ASML–Cornell Robotics Competition (out of 65 teams), 2025</li>
+      <li>Silver Cup Medal, Alpha Sigma Phi Fraternity — Outstanding Philanthropy Performance, 2024</li>
+      <li>Black Belt, Tae Kwon Do &amp; Brazilian Jiu-Jitsu (since high school)</li>
+    </ul>
+  </div>
+
+  <!-- REFERENCES -->
+  <div class="cv-section">
+    <div class="cv-section-title">References</div>
+    <p style="font-size: 14px; color: var(--text-2);">Available upon request.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Salvatore Ciminello</span>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/salvatore-ciminello" target="_blank">LinkedIn</a>
+      <a href="https://github.com/stc92" target="_blank">GitHub</a>
+      <a href="mailto:stc92@cornell.edu">Email</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

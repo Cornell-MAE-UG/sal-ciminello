@@ -1,0 +1,272 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Sal Ciminello</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #f9f8f6; --bg-card: #ffffff; --bg-muted: #f2f1ee;
+      --text: #1a1916; --text-2: #5a5851; --text-3: #9a9890;
+      --border: rgba(26,25,22,0.1); --border-md: rgba(26,25,22,0.18);
+      --radius: 12px;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.1rem 2.5rem;
+      background: rgba(249,248,246,0.92); backdrop-filter: blur(10px);
+      border-bottom: 0.5px solid var(--border);
+    }
+    .nav-logo { font-size: 14px; font-weight: 500; letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-size: 13px; color: var(--text-2); transition: color 0.15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); font-weight: 500; }
+
+    .page-header {
+      background: var(--bg-card);
+      border-bottom: 0.5px solid var(--border);
+      padding: 5rem 2.5rem 4rem;
+    }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; }
+    .page-eyebrow { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); margin-bottom: 1rem; }
+    .page-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; }
+    .page-title strong { font-weight: 500; }
+
+    .section { max-width: 1100px; margin: 0 auto; padding: 4rem 2.5rem; }
+    .section-wrap-alt { background: var(--bg-muted); border-bottom: 0.5px solid var(--border); }
+    .section-wrap { background: var(--bg-card); border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); }
+
+    .section-eyebrow {
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-3); margin-bottom: 2.5rem;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .section-eyebrow::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem;
+    }
+    .project-card {
+      background: var(--bg-card); border: 0.5px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: border-color 0.15s;
+    }
+    .project-card:hover { border-color: var(--border-md); }
+    .project-card-img {
+      width: 100%; height: 200px; object-fit: cover;
+      display: block; background: var(--bg-muted);
+    }
+    .project-card-img-placeholder {
+      width: 100%; height: 200px; background: var(--bg-muted);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; color: var(--text-3);
+    }
+    .project-card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
+    .project-card-tag { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); }
+    .project-card-title { font-size: 15px; font-weight: 500; line-height: 1.3; }
+    .project-card-desc { font-size: 13px; color: var(--text-2); line-height: 1.6; flex: 1; }
+    .project-card-footer {
+      padding: 0 1.25rem 1.25rem;
+      display: flex; gap: 6px; flex-wrap: wrap;
+    }
+    .tag { font-size: 11px; padding: 3px 9px; background: var(--bg-muted); border-radius: 4px; color: var(--text-2); }
+    .card-link::after { content: ''; position: absolute; inset: 0; }
+    .project-card { position: relative; }
+
+    footer { border-top: 0.5px solid var(--border); padding: 2rem 2.5rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-3); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--text-3); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .page-header { padding: 3rem 1.25rem 2.5rem; }
+      .section { padding: 3rem 1.25rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Sal Ciminello</a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="../cv.html">CV</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-eyebrow">Work</div>
+    <h1 class="page-title">Things I've <strong>built and researched.</strong></h1>
+  </div>
+</div>
+
+<!-- FEATURED -->
+<div class="section-wrap-alt">
+  <div class="section">
+    <div class="section-eyebrow">Featured projects</div>
+    <div class="projects-grid">
+
+      <a href="projects/robotic-arm.html" class="project-card">
+        <div class="project-card-img-placeholder">photo coming soon</div>
+        <div class="project-card-body">
+          <div class="project-card-tag">Robotics &nbsp;·&nbsp; Personal</div>
+          <div class="project-card-title">3 DOF Robotic Arm — V4</div>
+          <div class="project-card-desc">Full-stack build: Fusion 360 CAD, Raspberry Pi 5 controller, PCA9685 PWM driver, inverse kinematics in Python, 3D printed on Bambu P1S.</div>
+        </div>
+        <div class="project-card-footer">
+          <span class="tag">Fusion 360</span><span class="tag">Raspberry Pi</span><span class="tag">Python</span><span class="tag">FDM</span>
+        </div>
+      </a>
+
+      <a href="projects/drone.html" class="project-card">
+        <div class="project-card-img-placeholder">photo coming soon</div>
+        <div class="project-card-body">
+          <div class="project-card-tag">Autonomy &nbsp;·&nbsp; Personal</div>
+          <div class="project-card-title">Autonomous Rescue Drone</div>
+          <div class="project-card-desc">~24" quadcopter on ArduPilot + Pixhawk 6C Mini with Raspberry Pi companion computer running DroneKit/MAVSDK. Life-ring form factor for water rescue.</div>
+        </div>
+        <div class="project-card-footer">
+          <span class="tag">ArduPilot</span><span class="tag">MAVLink</span><span class="tag">DroneKit</span><span class="tag">Pixhawk</span>
+        </div>
+      </a>
+
+      <a href="projects/hyperloop-levitation.html" class="project-card">
+        <img src="assets/images/lev_circuit.JPG" alt="EM Levitation" class="project-card-img" />
+        <div class="project-card-body">
+          <div class="project-card-tag">Controls &nbsp;·&nbsp; Cornell Hyperloop</div>
+          <div class="project-card-title">Electromagnetic Levitation Controls</div>
+          <div class="project-card-desc">PID control loop for stable levitation using a ToF sensor and electromagnet driver. Full benchtop prototype with closed-loop feedback.</div>
+        </div>
+        <div class="project-card-footer">
+          <span class="tag">C++</span><span class="tag">Arduino</span><span class="tag">Matlab</span><span class="tag">Circuit Design</span>
+        </div>
+      </a>
+
+      <a href="projects/passivity-system.html" class="project-card">
+        <img src="assets/images/passive_fullpod.png" alt="Passivity System" class="project-card-img" />
+        <div class="project-card-body">
+          <div class="project-card-tag">Mechanical Design &nbsp;·&nbsp; Cornell Hyperloop</div>
+          <div class="project-card-title">Passivity Stability System</div>
+          <div class="project-card-desc">Spring-damper system designed and manufactured to prevent the hyperloop pod from rolling about yaw and pitch axes.</div>
+        </div>
+        <div class="project-card-footer">
+          <span class="tag">SolidWorks</span><span class="tag">Matlab</span><span class="tag">Dynamics</span>
+        </div>
+      </a>
+
+      <a href="projects/mechatronics-robot.html" class="project-card">
+        <img src="assets/images/mech-robot.JPG" alt="Mechatronics Robot" class="project-card-img" />
+        <div class="project-card-body">
+          <div class="project-card-tag">Mechatronics &nbsp;·&nbsp; Cornell</div>
+          <div class="project-card-title">Mechatronics Robot</div>
+          <div class="project-card-desc">Autonomous robot built with Arduino, QTI sensors, and custom 3D printed parts. Integrated servo control and sensor feedback for navigation.</div>
+        </div>
+        <div class="project-card-footer">
+          <span class="tag">Arduino</span><span class="tag">C++</span><span class="tag">Fusion 360</span><span class="tag">FDM</span>
+        </div>
+      </a>
+
+      <a href="projects/biomechanics.html" class="project-card">
+        <img src="assets/images/cs1_lunge.gif" alt="Biomechanics" class="project-card-img" style="object-fit:contain; padding: 1rem;" />
+        <div class="project-card-body">
+          <div class="project-card-tag">Dynamics &nbsp;·&nbsp; Cornell</div>
+          <div class="project-card-title">Biomechanics Study</div>
+          <div class="project-card-desc">Modeling rigid body dynamics of human motion using Differential Algebraic Equations (DAE method) in Matlab.</div>
+        </div>
+        <div class="project-card-footer">
+          <span class="tag">Matlab</span><span class="tag">DAE</span><span class="tag">Rigid Body Dynamics</span>
+        </div>
+      </a>
+
+      <a href="projects/skate-constraints.html" class="project-card">
+        <img src="assets/images/skate.JPG" alt="Skate Constraints" class="project-card-img" />
+        <div class="project-card-body">
+          <div class="project-card-tag">Dynamics &nbsp;·&nbsp; Cornell</div>
+          <div class="project-card-title">Analysis of Skate Constraints</div>
+          <div class="project-card-desc">Constraint analysis of a skate system using SolidWorks and rigid body dynamics methods.</div>
+        </div>
+        <div class="project-card-footer">
+          <span class="tag">SolidWorks</span><span class="tag">Dynamics</span>
+        </div>
+      </a>
+
+      <a href="projects/senior-design.html" class="project-card">
+        <img src="assets/images/4021turbine.png" alt="Senior Design" class="project-card-img" />
+        <div class="project-card-body">
+          <div class="project-card-tag">Aerodynamics &nbsp;·&nbsp; Cornell</div>
+          <div class="project-card-title">Wind Turbine Senior Design</div>
+          <div class="project-card-desc">Aerodynamic design and CFD analysis of a 3-bladed HAWT using BEM theory and ANSYS Fluent. Full 35-page report.</div>
+        </div>
+        <div class="project-card-footer">
+          <span class="tag">BEM Theory</span><span class="tag">ANSYS</span><span class="tag">Matlab</span><span class="tag">Fusion 360</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- OTHER WORKS -->
+<div class="section-wrap">
+  <div class="section">
+    <div class="section-eyebrow">Other works</div>
+    <div class="projects-grid">
+
+      <a href="projects/turbine-design.html" class="project-card">
+        <img src="assets/images/turbine_tunnel.png" alt="Turbine Design" class="project-card-img" />
+        <div class="project-card-body">
+          <div class="project-card-tag">Aerodynamics &nbsp;·&nbsp; Cornell</div>
+          <div class="project-card-title">MAE 4272 Turbine Design</div>
+          <div class="project-card-desc">Designed and wind-tunnel tested a blade turbine using BEM theory. NACA 4412 airfoil, optimized chord and twist distribution in Matlab.</div>
+        </div>
+        <div class="project-card-footer">
+          <span class="tag">BEM</span><span class="tag">Matlab</span><span class="tag">Fusion 360</span><span class="tag">Wind Tunnel</span>
+        </div>
+      </a>
+
+      <a href="projects/boeing-ethics.html" class="project-card">
+        <img src="assets/images/Alaska_737_Max_9.jpg" alt="Boeing Ethics" class="project-card-img" />
+        <div class="project-card-body">
+          <div class="project-card-tag">Engineering Ethics &nbsp;·&nbsp; Cornell</div>
+          <div class="project-card-title">Boeing 737 MAX Ethics Analysis</div>
+          <div class="project-card-desc">Ethical analysis of the 737 MAX crashes through the lens of ASME engineering canons — accountability, safety, and organizational failure.</div>
+        </div>
+        <div class="project-card-footer">
+          <span class="tag">Ethics</span><span class="tag">ASME Canons</span><span class="tag">Engineering Safety</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Salvatore Ciminello</span>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/salvatore-ciminello" target="_blank">LinkedIn</a>
+      <a href="https://github.com/stc92" target="_blank">GitHub</a>
+      <a href="mailto:stc92@cornell.edu">Email</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

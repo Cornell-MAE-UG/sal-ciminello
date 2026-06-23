@@ -1,0 +1,335 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sal Ciminello</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:        #f9f8f6;
+      --bg-card:   #ffffff;
+      --bg-muted:  #f2f1ee;
+      --text:      #1a1916;
+      --text-2:    #5a5851;
+      --text-3:    #9a9890;
+      --border:    rgba(26,25,22,0.1);
+      --border-md: rgba(26,25,22,0.18);
+      --accent:    #1a1916;
+      --radius:    12px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.1rem 2.5rem;
+      background: rgba(249,248,246,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 0.5px solid var(--border);
+    }
+    .nav-logo { font-size: 14px; font-weight: 500; letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-size: 13px; color: var(--text-2); transition: color 0.15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-links a.active { font-weight: 500; }
+
+    /* HERO */
+    .hero-wrap {
+      background: var(--bg-card);
+      border-bottom: 0.5px solid var(--border);
+    }
+    .hero {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.1fr 0.9fr;
+      gap: 5rem; align-items: center;
+      padding: 7rem 2.5rem 6rem;
+    }
+    .hero-eyebrow {
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-3); margin-bottom: 1.5rem;
+    }
+    .hero-name {
+      font-size: clamp(2.6rem, 5.5vw, 4rem);
+      font-weight: 300; line-height: 1.08;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-name strong { font-weight: 500; }
+    .hero-sub {
+      font-size: 17px; line-height: 1.75;
+      color: var(--text-2); max-width: 460px;
+      margin-bottom: 2.25rem;
+    }
+    .hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center;
+      padding: 10px 20px; font-size: 13px; font-weight: 500;
+      border-radius: 8px; border: 0.5px solid var(--border-md);
+      background: transparent; color: var(--text);
+      cursor: pointer; transition: background 0.15s;
+      font-family: inherit;
+    }
+    .btn:hover { background: var(--bg-muted); }
+    .btn-primary {
+      background: var(--text); color: var(--bg-card);
+      border-color: var(--text);
+    }
+    .btn-primary:hover { opacity: 0.82; background: var(--text); }
+
+    .hero-photo { display: flex; justify-content: flex-end; }
+    .photo-frame {
+      width: 300px; height: 360px;
+      border-radius: var(--radius);
+      border: 0.5px solid var(--border);
+      overflow: hidden; background: var(--bg-muted);
+    }
+    .photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* SECTIONS */
+    .section {
+      max-width: 1100px; margin: 0 auto;
+      padding: 5rem 2.5rem;
+    }
+    .section-wrap-alt { background: var(--bg-muted); border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); }
+    .section-wrap { background: var(--bg-card); border-top: 0.5px solid var(--border); }
+
+    .section-eyebrow {
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-3); margin-bottom: 3rem;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .section-eyebrow::after {
+      content: ''; flex: 1; height: 0.5px; background: var(--border);
+    }
+
+    /* ORIGIN */
+    .origin-grid {
+      display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: start;
+    }
+    .origin-pull {
+      font-size: 1.45rem; font-weight: 400; line-height: 1.45;
+      letter-spacing: -0.015em; color: var(--text);
+      border-left: 1.5px solid var(--border-md);
+      padding-left: 1.25rem;
+    }
+    .origin-body { font-size: 15px; line-height: 1.85; color: var(--text-2); }
+    .origin-body p + p { margin-top: 1.1rem; }
+
+    /* WORK CARDS */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .work-card {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .work-card-tag {
+      display: inline-block;
+      font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-3);
+      background: var(--bg-muted);
+      padding: 3px 8px; border-radius: 4px;
+      margin-bottom: 0.85rem;
+    }
+    .work-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 0.5rem; line-height: 1.35; }
+    .work-card p { font-size: 13px; line-height: 1.7; color: var(--text-2); }
+
+    /* PROJECT CARDS */
+    .project-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .project-card {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .project-card .p-label {
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-3);
+    }
+    .project-card h3 { font-size: 15px; font-weight: 500; line-height: 1.35; }
+    .project-card p { font-size: 13px; line-height: 1.7; color: var(--text-2); flex: 1; }
+    .tag-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 0.5rem; }
+    .tag {
+      font-size: 11px; padding: 3px 9px;
+      background: var(--bg-muted); border-radius: 4px;
+      color: var(--text-2);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 0.5px solid var(--border);
+      padding: 2rem 2.5rem;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12px; color: var(--text-3);
+    }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--text-3); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--text); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.25rem 3rem; }
+      .hero-photo { justify-content: flex-start; }
+      .photo-frame { width: 220px; height: 260px; }
+      .section { padding: 3.5rem 1.25rem; }
+      .origin-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .project-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Sal Ciminello</div>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="cv.html">CV</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-wrap">
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow">M.Eng Aerospace Engineering &nbsp;·&nbsp; Cornell University</div>
+      <h1 class="hero-name">
+        I build things<br><strong>that move.</strong>
+      </h1>
+      <p class="hero-sub">
+        Satellites, hyperloop pods, drones, robotic arms — usually from scratch, always from the basement up. I'm a mechanical and aerospace engineer who codes, prints, and solders his own work.
+      </p>
+      <div class="hero-ctas">
+        <a href="projects.html" class="btn btn-primary">View Projects</a>
+        <a href="cv.html" class="btn">Download CV</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="photo-frame">
+        <img src="assets/images/profile-pic.jpg" alt="Sal Ciminello" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ORIGIN -->
+<div class="section-wrap-alt">
+  <div class="section">
+    <div class="section-eyebrow">Background</div>
+    <div class="origin-grid">
+      <div class="origin-pull">
+        Iron Man made me want to be an engineer.<br>I wasn't joking.
+      </div>
+      <div class="origin-body">
+        <p>Elementary school, first viewing of Iron Man — I walked out wanting to build things that help people. I've been chasing that ever since, just with more math and considerably fewer fictional arc reactors.</p>
+        <p>At Cornell I went from freshman on the magnetic braking subteam to Mechanical Lead of Cornell Hyperloop, running six subteams and ~40 engineers across electromagnetic levitation, composites, braking, and aero. Simultaneously I've been doing M.Eng research at the Cornell Aerospace Adversary Lab on an AFRL-funded CubeSat constellation testbed — structural design, inter-satellite comms, and formation control.</p>
+        <p>Outside of school I co-founded Go2, a portable carbonation startup, and I'm building a 3 DOF robotic arm and an autonomous rescue drone in my basement. Because apparently I don't sleep.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section-wrap">
+  <div class="section">
+    <div class="section-eyebrow">Experience</div>
+    <div class="work-grid">
+      <div class="work-card">
+        <div class="work-card-tag">Research</div>
+        <h3>Cornell Aerospace Adversary Lab</h3>
+        <p>AFRL-funded CubeSat constellation testbed. Structural design, inter-satellite comms, and formation control algorithms.</p>
+      </div>
+      <div class="work-card">
+        <div class="work-card-tag">Leadership</div>
+        <h3>Cornell Hyperloop — Mechanical Lead</h3>
+        <p>Led ~40 engineers across six subteams: EM levitation, composites, braking, propulsion, and aeroshell manufacturing.</p>
+      </div>
+      <div class="work-card">
+        <div class="work-card-tag">Teaching</div>
+        <h3>TA — Mechatronics &amp; System Dynamics</h3>
+        <p>Teaching assistant at Cornell MAE covering embedded systems, control theory, and dynamic modeling.</p>
+      </div>
+      <div class="work-card">
+        <div class="work-card-tag">Startup</div>
+        <h3>Go2 (Co2Go) — Co-founder</h3>
+        <p>Portable carbonation device. Full engineering stack: CAD, FDM prototyping, and part drawings for overseas manufacturers.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="section-wrap-alt">
+  <div class="section">
+    <div class="section-eyebrow">Personal projects</div>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="p-label">Robotics</div>
+        <h3>3 DOF Robotic Arm — V4</h3>
+        <p>Designed in Fusion 360, built on a Raspberry Pi 5 with PCA9685 PWM driver and inverse kinematics in Python. 3D printed on a Bambu P1S.</p>
+        <div class="tag-row">
+          <span class="tag">Fusion 360</span>
+          <span class="tag">Raspberry Pi</span>
+          <span class="tag">Python</span>
+          <span class="tag">FDM</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="p-label">Autonomy</div>
+        <h3>Autonomous Rescue Drone</h3>
+        <p>~24" quadcopter on ArduPilot + Pixhawk 6C Mini with a Raspberry Pi companion computer running DroneKit/MAVSDK. Life-ring form factor for water rescue.</p>
+        <div class="tag-row">
+          <span class="tag">ArduPilot</span>
+          <span class="tag">MAVLink</span>
+          <span class="tag">DroneKit</span>
+          <span class="tag">Pixhawk</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Salvatore Ciminello</span>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/salvatore-ciminello" target="_blank">LinkedIn</a>
+      <a href="https://github.com/stc92" target="_blank">GitHub</a>
+      <a href="mailto:stc92@cornell.edu">Email</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

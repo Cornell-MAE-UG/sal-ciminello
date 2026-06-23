@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autonomous Rescue Drone — Sal Ciminello</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --bg: #f9f8f6; --bg-card: #ffffff; --bg-muted: #f2f1ee; --text: #1a1916; --text-2: #5a5851; --text-3: #9a9890; --border: rgba(26,25,22,0.1); --border-md: rgba(26,25,22,0.18); --radius: 12px; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 2.5rem; background: rgba(249,248,246,0.92); backdrop-filter: blur(10px); border-bottom: 0.5px solid var(--border); }
+    .nav-logo { font-size: 14px; font-weight: 500; letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-size: 13px; color: var(--text-2); transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); font-weight: 500; }
+    .back-bar { background: var(--bg-card); border-bottom: 0.5px solid var(--border); padding: 0.85rem 2.5rem; }
+    .back-link { font-size: 13px; color: var(--text-3); display: inline-flex; align-items: center; gap: 6px; transition: color 0.15s; }
+    .back-link:hover { color: var(--text); }
+    .hero { background: var(--bg-card); border-bottom: 0.5px solid var(--border); padding: 4rem 2.5rem; }
+    .hero-inner { max-width: 800px; margin: 0 auto; }
+    .hero-eyebrow { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); margin-bottom: 1rem; }
+    .hero-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; }
+    .hero-title strong { font-weight: 500; }
+    .hero-desc { font-size: 16px; color: var(--text-2); line-height: 1.75; margin-bottom: 1.5rem; }
+    .tag-row { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tag { font-size: 11px; padding: 3px 9px; background: var(--bg-muted); border-radius: 4px; color: var(--text-2); }
+    .content { max-width: 800px; margin: 0 auto; padding: 4rem 2.5rem; }
+    .content h2 { font-size: 1.3rem; font-weight: 500; margin: 2.5rem 0 0.85rem; letter-spacing: -0.01em; }
+    .content h3 { font-size: 1.05rem; font-weight: 500; margin: 2rem 0 0.65rem; }
+    .content p { font-size: 15px; color: var(--text-2); line-height: 1.85; margin-bottom: 1rem; }
+    .content ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+    .content li { font-size: 15px; color: var(--text-2); line-height: 1.8; }
+    .content hr { border: none; border-top: 0.5px solid var(--border); margin: 2.5rem 0; }
+    .coming-soon { text-align: center; padding: 4rem 2rem; color: var(--text-3); font-size: 14px; border: 0.5px dashed var(--border-md); border-radius: var(--radius); margin-top: 1rem; }
+    footer { border-top: 0.5px solid var(--border); padding: 2rem 2.5rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-3); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--text-3); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--text); }
+    @media (max-width: 768px) { nav, .back-bar { padding: 1rem 1.25rem; } .hero { padding: 3rem 1.25rem; } .content { padding: 2.5rem 1.25rem; } .footer-inner { flex-direction: column; gap: 1rem; text-align: center; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">Sal Ciminello</a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../projects.html">Projects</a>
+    <a href="../cv.html">CV</a>
+  </div>
+</nav>
+<div class="back-bar"><a href="../projects.html" class="back-link">← All projects</a></div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Autonomy &nbsp;·&nbsp; Personal Project</div>
+    <h1 class="hero-title"><strong>Autonomous</strong> Rescue Drone</h1>
+    <p class="hero-desc">A ~24" autonomous quadcopter designed around a life-ring form factor for water rescue. Built from scratch — frame, flight controller, companion computer, and MAVLink autonomy stack all self-integrated.</p>
+    <div class="tag-row">
+      <span class="tag">ArduPilot</span><span class="tag">Pixhawk 6C Mini</span><span class="tag">Raspberry Pi</span><span class="tag">MAVLink</span><span class="tag">DroneKit</span><span class="tag">MAVSDK</span><span class="tag">Fusion 360</span>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="coming-soon">Full write-up coming soon — build log, CAD, and autonomy stack walkthrough on the way.</div>
+
+  <h2>Concept</h2>
+  <p>The idea came from thinking about water rescue response time. A drone that can autonomously navigate to a person in distress and deploy a life ring is faster than any human swimmer or boat in most scenarios. This project is the engineering proof-of-concept for that idea.</p>
+
+  <h2>Hardware Stack</h2>
+  <ul>
+    <li>F450 frame extended to ~24" diameter with custom 3D printed arm extensions</li>
+    <li>Holybro Pixhawk 6C Mini running ArduPilot</li>
+    <li>Raspberry Pi companion computer for high-level autonomy</li>
+    <li>A2212 brushless motors with BLHeli_S ESCs</li>
+    <li>4S LiPo power system</li>
+    <li>RadioMaster Pocket ELRS for RC control</li>
+  </ul>
+
+  <h2>Autonomy Stack</h2>
+  <p>The Raspberry Pi communicates with the Pixhawk over MAVLink via a serial connection. High-level mission logic runs in Python using DroneKit and MAVSDK, allowing the drone to navigate waypoints, hold position, and execute autonomous delivery sequences without RC input.</p>
+
+  <h2>Mechanical Design</h2>
+  <p>The life-ring form factor required extending the stock F450 frame from ~18" to ~24". Custom arm extension pieces were designed in Fusion 360 and printed on the Bambu P1S to maintain structural stiffness while adding the required diameter.</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Salvatore Ciminello</span>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/salvatore-ciminello" target="_blank">LinkedIn</a>
+      <a href="https://github.com/stc92" target="_blank">GitHub</a>
+      <a href="mailto:stc92@cornell.edu">Email</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

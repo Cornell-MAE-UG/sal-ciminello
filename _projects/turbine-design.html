@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAE 4272 Turbine Design — Sal Ciminello</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --bg: #f9f8f6; --bg-card: #ffffff; --bg-muted: #f2f1ee; --text: #1a1916; --text-2: #5a5851; --text-3: #9a9890; --border: rgba(26,25,22,0.1); --border-md: rgba(26,25,22,0.18); --radius: 12px; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 2.5rem; background: rgba(249,248,246,0.92); backdrop-filter: blur(10px); border-bottom: 0.5px solid var(--border); }
+    .nav-logo { font-size: 14px; font-weight: 500; letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-size: 13px; color: var(--text-2); transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); font-weight: 500; }
+    .back-bar { background: var(--bg-card); border-bottom: 0.5px solid var(--border); padding: 0.85rem 2.5rem; }
+    .back-link { font-size: 13px; color: var(--text-3); display: inline-flex; align-items: center; gap: 6px; transition: color 0.15s; }
+    .back-link:hover { color: var(--text); }
+    .hero { background: var(--bg-card); border-bottom: 0.5px solid var(--border); padding: 4rem 2.5rem; }
+    .hero-inner { max-width: 800px; margin: 0 auto; }
+    .hero-eyebrow { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); margin-bottom: 1rem; }
+    .hero-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; }
+    .hero-title strong { font-weight: 500; }
+    .hero-desc { font-size: 16px; color: var(--text-2); line-height: 1.75; margin-bottom: 1.5rem; }
+    .hero-img { margin-top: 2.5rem; border-radius: var(--radius); overflow: hidden; border: 0.5px solid var(--border); }
+    .hero-img img { width: 100%; display: block; max-height: 460px; object-fit: cover; }
+    .tag-row { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tag { font-size: 11px; padding: 3px 9px; background: var(--bg-muted); border-radius: 4px; color: var(--text-2); }
+    .content { max-width: 800px; margin: 0 auto; padding: 4rem 2.5rem; }
+    .content h2 { font-size: 1.3rem; font-weight: 500; margin: 2.5rem 0 0.85rem; letter-spacing: -0.01em; }
+    .content h3 { font-size: 1.05rem; font-weight: 500; margin: 2rem 0 0.65rem; }
+    .content p { font-size: 15px; color: var(--text-2); line-height: 1.85; margin-bottom: 1rem; }
+    .content ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+    .content li { font-size: 15px; color: var(--text-2); line-height: 1.8; }
+    .content img { width: 100%; border-radius: 8px; margin: 1.5rem 0; border: 0.5px solid var(--border); }
+    .content hr { border: none; border-top: 0.5px solid var(--border); margin: 2.5rem 0; }
+    footer { border-top: 0.5px solid var(--border); padding: 2rem 2.5rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-3); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--text-3); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--text); }
+    @media (max-width: 768px) { nav, .back-bar { padding: 1rem 1.25rem; } .hero { padding: 3rem 1.25rem; } .content { padding: 2.5rem 1.25rem; } .footer-inner { flex-direction: column; gap: 1rem; text-align: center; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">Sal Ciminello</a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../projects.html">Projects</a>
+    <a href="../cv.html">CV</a>
+  </div>
+</nav>
+<div class="back-bar"><a href="../projects.html" class="back-link">← All projects</a></div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Aerodynamics &nbsp;·&nbsp; MAE 4272 Fluids Lab</div>
+    <h1 class="hero-title">MAE 4272 <strong>Turbine Design</strong></h1>
+    <p class="hero-desc">Designed and wind-tunnel tested a blade turbine using BEM theory. NACA 4412 airfoil, optimized chord and twist distribution via Matlab, then 3D printed and tested across multiple wind speeds.</p>
+    <div class="tag-row">
+      <span class="tag">BEM Theory</span><span class="tag">Matlab</span><span class="tag">Fusion 360</span><span class="tag">NACA 4412</span><span class="tag">Wind Tunnel</span><span class="tag">FDM</span>
+    </div>
+    <div class="hero-img"><img src="../assets/images/turbine_tunnel.png" alt="Turbine in wind tunnel" /></div>
+  </div>
+</div>
+
+<div class="content">
+  <h2>Workflow</h2>
+  <p>Constraints → Design → CAD → Print → Wind-tunnel test → Data analysis</p>
+
+  <h2>Constraints</h2>
+  <p>Wind tunnel speed capped at 20 m/s, max rotational speed 3000 RPM, and turbine length under 6 inches to fit the test section. Chord thickness had to be sufficient to avoid brittle failure.</p>
+
+  <h2>Design</h2>
+  <p>Blade geometry was designed using BEM theory in Matlab. A NACA 4412 airfoil was selected for its low Reynolds number performance. Chord and twist distributions were optimized by looping BEM calculations across a range of tip-speed ratios and selecting the geometry with the highest power output. Optimal design: ~800 RPM at ~6 m/s, TSR ≈ 2.1.</p>
+
+  <img src="../assets/images/bemeq.png" alt="BEM equations" style="max-width: 420px;" />
+  <img src="../assets/images/bending.png" alt="Blade bending analysis" style="max-width: 520px;" />
+
+  <h2>CAD & Print</h2>
+  <p>Blade built in Fusion 360 by importing the NACA 4412 cross-section and lofting airfoil stations along the span using Matlab-generated chord and twist values. Final set 3D printed and assembled onto a hub compatible with the wind tunnel test stand.</p>
+
+  <h2>Wind Tunnel Testing</h2>
+  <p>Tested at multiple wind speeds using a Pitot-static tube. For each wind speed, torque brake loading was swept until stall, recording wind speed, RPM, and power output to produce power vs. RPM curves and identify peak operating points.</p>
+
+  <img src="../assets/images/turbine_exp.png" alt="Experimental turbine data" />
+
+  <h2>Results</h2>
+  <p>Peak measured power: 0.8335 W at 8.3 m/s and ~1280 RPM (TSR ≈ 2.42). Results compared to BEM predictions and a baseline rotor to evaluate the taper/twist design's effect.</p>
+
+  <h2>My Contribution</h2>
+  <p>I focused on the modeling and design stage — deriving optimal blade geometry equations, implementing the BEM optimization in Matlab, and performing all post-processing: binning test data by wind speed, extracting peak power points, computing TSR and Cp, generating plots, and estimating long-term average power using a Weibull wind-speed model (k=5, c=5).</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Salvatore Ciminello</span>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/salvatore-ciminello" target="_blank">LinkedIn</a>
+      <a href="https://github.com/stc92" target="_blank">GitHub</a>
+      <a href="mailto:stc92@cornell.edu">Email</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

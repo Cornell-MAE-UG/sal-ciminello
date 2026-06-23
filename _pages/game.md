@@ -1,9 +1,0 @@
----
-layout: default
-title: Incremental Game
-permalink: /game/
----
-
-<div id="game" class="game"></div>
-<link rel="stylesheet" href="{{ '/assets/css/game.css?v=3' | relative_url }}">
-<script defer src="{{ '/assets/js/game.js?v=2' | relative_url }}"></script>
