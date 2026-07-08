@@ -26,6 +26,7 @@
     .hero-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; }
     .hero-title strong { font-weight: 500; }
     .hero-desc { font-size: 16px; color: var(--text-2); line-height: 1.75; margin-bottom: 1.5rem; }
+    .hero-img { width: 100%; max-height: 420px; object-fit: cover; border-radius: var(--radius); margin-bottom: 1.5rem; background: var(--bg-muted); }
     .tag-row { display: flex; gap: 6px; flex-wrap: wrap; }
     .tag { font-size: 11px; padding: 3px 9px; background: var(--bg-muted); border-radius: 4px; color: var(--text-2); }
     .content { max-width: 800px; margin: 0 auto; padding: 4rem 2.5rem; }
@@ -58,8 +59,9 @@
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Autonomy &nbsp;·&nbsp; Personal Project</div>
-    <h1 class="hero-title"><strong>Autonomous</strong> Rescue Drone</h1>
-    <p class="hero-desc">A ~24" autonomous quadcopter designed around a life-ring form factor for water rescue. Built from scratch — frame, flight controller, companion computer, and MAVLink autonomy stack all self-integrated.</p>
+    <h1 class="hero-title"><strong>Autonomous</strong> Rescue Drone <span style="font-size: 0.5em; color: var(--text-3); font-weight: 400;">(in assembly)</span></h1>
+    <p class="hero-desc">A ~24" autonomous quadcopter designed around a life-ring form factor for water rescue. Custom 3D-printed shell over an F450 frame — currently soldering ESC power leads and motor connections, with the power module still to be installed before the frame closes.</p>
+    <img src="../assets/images/drone-prototype.JPG" alt="Drone prototype in assembly" class="hero-img">
     <div class="tag-row">
       <span class="tag">ArduPilot</span><span class="tag">Pixhawk 6C Mini</span><span class="tag">Raspberry Pi</span><span class="tag">MAVLink</span><span class="tag">DroneKit</span><span class="tag">MAVSDK</span><span class="tag">Fusion 360</span>
     </div>
@@ -83,7 +85,7 @@
   </ul>
 
   <h2>Autonomy Stack</h2>
-  <p>The Raspberry Pi communicates with the Pixhawk over MAVLink via a serial connection. High-level mission logic runs in Python using DroneKit and MAVSDK, allowing the drone to navigate waypoints, hold position, and execute autonomous delivery sequences without RC input.</p>
+  <p>Planned architecture: the Raspberry Pi will communicate with the Pixhawk over MAVLink via a serial connection, with high-level mission logic in Python using DroneKit and MAVSDK to handle waypoint navigation, position hold, and autonomous delivery sequences. Software architecture is designed; integration testing begins once hardware assembly is complete.</p>
 
   <h2>Mechanical Design</h2>
   <p>The life-ring form factor required extending the stock F450 frame from ~18" to ~24". Custom arm extension pieces were designed in Fusion 360 and printed on the Bambu P1S to maintain structural stiffness while adding the required diameter.</p>

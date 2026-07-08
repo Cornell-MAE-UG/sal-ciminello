@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3 DOF Robotic Arm — Sal Ciminello</title>
+  <title>Robotic Arm — Sal Ciminello</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -26,6 +26,7 @@
     .hero-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; }
     .hero-title strong { font-weight: 500; }
     .hero-desc { font-size: 16px; color: var(--text-2); line-height: 1.75; margin-bottom: 1.5rem; }
+    .hero-img { width: 100%; max-height: 420px; object-fit: contain; border-radius: var(--radius); margin-bottom: 1.5rem; background: var(--bg-muted); }
     .tag-row { display: flex; gap: 6px; flex-wrap: wrap; }
     .tag { font-size: 11px; padding: 3px 9px; background: var(--bg-muted); border-radius: 4px; color: var(--text-2); }
     .content { max-width: 800px; margin: 0 auto; padding: 4rem 2.5rem; }
@@ -58,8 +59,9 @@
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Robotics &nbsp;·&nbsp; Personal Project</div>
-    <h1 class="hero-title">3 DOF Robotic Arm — <strong>V4</strong></h1>
-    <p class="hero-desc">A fully self-designed and built robotic arm — mechanical design in Fusion 360, electronics on Raspberry Pi 5, inverse kinematics in Python, and 3D printed on a Bambu P1S. All from my basement.</p>
+    <h1 class="hero-title">Robotic Arm — <strong>V4</strong> <span style="font-size: 0.5em; color: var(--text-3); font-weight: 400;">(in progress)</span></h1>
+    <p class="hero-desc">A self-designed robotic arm, targeting 6 degrees of freedom — mechanical design in Fusion 360, electronics on Raspberry Pi 5, inverse kinematics in Python, 3D printed on a Bambu P1S. Currently finishing mechanical assembly; 3-4 DOF operational so far. All from my basement.</p>
+    <img src="../assets/images/arm-prototype.JPG" alt="Robotic arm prototype" class="hero-img">
     <div class="tag-row">
       <span class="tag">Fusion 360</span><span class="tag">Raspberry Pi 5</span><span class="tag">Python</span><span class="tag">PCA9685</span><span class="tag">FDM</span><span class="tag">Inverse Kinematics</span>
     </div>
@@ -67,10 +69,10 @@
 </div>
 
 <div class="content">
-  <div class="coming-soon">Full write-up coming soon — photos, CAD screenshots, and IK walkthrough on the way.</div>
+  <div class="coming-soon">Full write-up coming soon — CAD screenshots and IK walkthrough on the way.</div>
 
   <h2>Overview</h2>
-  <p>The V4 robotic arm is the fourth iteration of an ongoing personal project to build a fully functional 3 degree-of-freedom robotic arm from scratch. Every version has pushed further in mechanical design, control sophistication, and hardware integration.</p>
+  <p>The V4 robotic arm is the fourth iteration of an ongoing personal project to build a fully functional robotic arm from scratch, targeting 6 degrees of freedom. Assembly is in progress; 3-4 joints are currently operational. Every version has pushed further in mechanical design, control sophistication, and hardware integration.</p>
 
   <h2>Hardware</h2>
   <ul>
