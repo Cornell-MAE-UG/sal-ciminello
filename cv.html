@@ -92,7 +92,6 @@
 
     /* SKILLS */
     .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .skill-group { }
     .skill-group-label { font-size: 12px; font-weight: 500; color: var(--text-3); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em; }
     .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .skill-tag { font-size: 12px; padding: 3px 10px; background: var(--bg-muted); border-radius: 4px; color: var(--text-2); }
@@ -122,11 +121,11 @@
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Sal Ciminello</a>
+  <a href="{{ '/index.html' | relative_url }}" class="nav-logo">Sal Ciminello</a>
   <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="cv.html" class="active">CV</a>
+    <a href="{{ '/index.html' | relative_url }}" class="{% if page.url == '/index.html' %}active{% endif %}">Home</a>
+    <a href="{{ '/projects.html' | relative_url }}" class="{% if page.url == '/projects.html' %}active{% endif %}">Projects</a>
+    <a href="{{ '/cv.html' | relative_url }}" class="{% if page.url == '/cv.html' %}active{% endif %}">CV</a>
   </div>
 </nav>
 

@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,14 +50,14 @@
 </head>
 <body>
 <nav>
-  <a href="../index.html" class="nav-logo">Sal Ciminello</a>
+  <a href="{{ '/index.html' | relative_url }}" class="nav-logo">Sal Ciminello</a>
   <div class="nav-links">
-    <a href="../index.html">Home</a>
-    <a href="../projects.html">Projects</a>
-    <a href="../cv.html">CV</a>
+    <a href="{{ '/index.html' | relative_url }}">Home</a>
+    <a href="{{ '/projects.html' | relative_url }}">Projects</a>
+    <a href="{{ '/cv.html' | relative_url }}">CV</a>
   </div>
 </nav>
-<div class="back-bar"><a href="../projects.html" class="back-link">← All projects</a></div>
+<div class="back-bar"><a href="{{ '/projects.html' | relative_url }}" class="back-link">← All projects</a></div>
 
 <div class="hero">
   <div class="hero-inner">
@@ -65,7 +67,7 @@
     <div class="tag-row">
       <span class="tag">BEM Theory</span><span class="tag">Matlab</span><span class="tag">Fusion 360</span><span class="tag">NACA 4412</span><span class="tag">Wind Tunnel</span><span class="tag">FDM</span>
     </div>
-    <div class="hero-img"><img src="../assets/images/turbine_tunnel.png" alt="Turbine in wind tunnel" /></div>
+    <div class="hero-img"><img src="{{ '/assets/images/turbine_tunnel.png' | relative_url }}" alt="Turbine in wind tunnel" /></div>
   </div>
 </div>
 
@@ -79,8 +81,8 @@
   <h2>Design</h2>
   <p>Blade geometry was designed using BEM theory in Matlab. A NACA 4412 airfoil was selected for its low Reynolds number performance. Chord and twist distributions were optimized by looping BEM calculations across a range of tip-speed ratios and selecting the geometry with the highest power output. Optimal design: ~800 RPM at ~6 m/s, TSR ≈ 2.1.</p>
 
-  <img src="../assets/images/bemeq.png" alt="BEM equations" style="max-width: 420px;" />
-  <img src="../assets/images/bending.png" alt="Blade bending analysis" style="max-width: 520px;" />
+  <img src="{{ '/assets/images/bemeq.png' | relative_url }}" alt="BEM equations" style="max-width: 420px;" />
+  <img src="{{ '/assets/images/bending.png' | relative_url }}" alt="Blade bending analysis" style="max-width: 520px;" />
 
   <h2>CAD & Print</h2>
   <p>Blade built in Fusion 360 by importing the NACA 4412 cross-section and lofting airfoil stations along the span using Matlab-generated chord and twist values. Final set 3D printed and assembled onto a hub compatible with the wind tunnel test stand.</p>
@@ -88,7 +90,7 @@
   <h2>Wind Tunnel Testing</h2>
   <p>Tested at multiple wind speeds using a Pitot-static tube. For each wind speed, torque brake loading was swept until stall, recording wind speed, RPM, and power output to produce power vs. RPM curves and identify peak operating points.</p>
 
-  <img src="../assets/images/turbine_exp.png" alt="Experimental turbine data" />
+  <img src="{{ '/assets/images/turbine_exp.png' | relative_url }}" alt="Experimental turbine data" />
 
   <h2>Results</h2>
   <p>Peak measured power: 0.8335 W at 8.3 m/s and ~1280 RPM (TSR ≈ 2.42). Results compared to BEM predictions and a baseline rotor to evaluate the taper/twist design's effect.</p>

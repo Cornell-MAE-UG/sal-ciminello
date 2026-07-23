@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,21 +53,21 @@
 </head>
 <body>
 <nav>
-  <a href="../index.html" class="nav-logo">Sal Ciminello</a>
+  <a href="{{ '/index.html' | relative_url }}" class="nav-logo">Sal Ciminello</a>
   <div class="nav-links">
-    <a href="../index.html">Home</a>
-    <a href="../projects.html">Projects</a>
-    <a href="../cv.html">CV</a>
+    <a href="{{ '/index.html' | relative_url }}">Home</a>
+    <a href="{{ '/projects.html' | relative_url }}">Projects</a>
+    <a href="{{ '/cv.html' | relative_url }}">CV</a>
   </div>
 </nav>
-<div class="back-bar"><a href="../projects.html" class="back-link">← All projects</a></div>
+<div class="back-bar"><a href="{{ '/projects.html' | relative_url }}" class="back-link">← All projects</a></div>
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Dynamics &nbsp;·&nbsp; Cornell MAE</div>
     <h1 class="hero-title">Analysis of <strong>Skate Constraints</strong></h1>
     <p class="hero-desc">Constraint analysis of a skate system using SolidWorks and rigid body dynamics methods. Examining degrees of freedom, constraint equations, and resulting motion.</p>
     <div class="tag-row"><span class="tag">SolidWorks</span><span class="tag">Dynamics</span><span class="tag">Constraint Analysis</span></div>
-    <div class="hero-img"><img src="../assets/images/skate.JPG" alt="Skate constraint analysis" /></div>
+    <div class="hero-img"><img src="{{ '/assets/images/skate.JPG' | relative_url }}" alt="Skate constraint analysis" /></div>
   </div>
 </div>
 <div class="content"><div class="coming-soon">Full write-up coming soon.</div></div>

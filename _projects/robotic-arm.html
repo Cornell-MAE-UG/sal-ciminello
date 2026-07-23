@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,21 +49,21 @@
 </head>
 <body>
 <nav>
-  <a href="../index.html" class="nav-logo">Sal Ciminello</a>
+  <a href="{{ '/index.html' | relative_url }}" class="nav-logo">Sal Ciminello</a>
   <div class="nav-links">
-    <a href="../index.html">Home</a>
-    <a href="../projects.html">Projects</a>
-    <a href="../cv.html">CV</a>
+    <a href="{{ '/index.html' | relative_url }}">Home</a>
+    <a href="{{ '/projects.html' | relative_url }}">Projects</a>
+    <a href="{{ '/cv.html' | relative_url }}">CV</a>
   </div>
 </nav>
-<div class="back-bar"><a href="../projects.html" class="back-link">← All projects</a></div>
+<div class="back-bar"><a href="{{ '/projects.html' | relative_url }}" class="back-link">← All projects</a></div>
 
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Robotics &nbsp;·&nbsp; Personal Project</div>
     <h1 class="hero-title">Robotic Arm — <strong>V4</strong> <span style="font-size: 0.5em; color: var(--text-3); font-weight: 400;">(in progress)</span></h1>
     <p class="hero-desc">A self-designed robotic arm, targeting 6 degrees of freedom — mechanical design in Fusion 360, electronics on Raspberry Pi 5, inverse kinematics in Python, 3D printed on a Bambu P1S. Currently finishing mechanical assembly; 3-4 DOF operational so far. All from my basement.</p>
-    <img src="../assets/images/arm-prototype.JPG" alt="Robotic arm prototype" class="hero-img">
+    <img src="{{ '/assets/images/arm-prototype.JPG' | relative_url }}" alt="Robotic arm prototype" class="hero-img">
     <div class="tag-row">
       <span class="tag">Fusion 360</span><span class="tag">Raspberry Pi 5</span><span class="tag">Python</span><span class="tag">PCA9685</span><span class="tag">FDM</span><span class="tag">Inverse Kinematics</span>
     </div>

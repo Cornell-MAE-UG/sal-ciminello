@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,21 +53,21 @@
 </head>
 <body>
 <nav>
-  <a href="../index.html" class="nav-logo">Sal Ciminello</a>
+  <a href="{{ '/index.html' | relative_url }}" class="nav-logo">Sal Ciminello</a>
   <div class="nav-links">
-    <a href="../index.html">Home</a>
-    <a href="../projects.html">Projects</a>
-    <a href="../cv.html">CV</a>
+    <a href="{{ '/index.html' | relative_url }}">Home</a>
+    <a href="{{ '/projects.html' | relative_url }}">Projects</a>
+    <a href="{{ '/cv.html' | relative_url }}">CV</a>
   </div>
 </nav>
-<div class="back-bar"><a href="../projects.html" class="back-link">← All projects</a></div>
+<div class="back-bar"><a href="{{ '/projects.html' | relative_url }}" class="back-link">← All projects</a></div>
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Mechatronics &nbsp;·&nbsp; Cornell MAE</div>
     <h1 class="hero-title"><strong>Mechatronics</strong> Robot</h1>
     <p class="hero-desc">An autonomous robot built as part of Cornell's Mechatronics course. Integrated Arduino control, QTI line sensors, servo actuation, and custom 3D printed parts.</p>
     <div class="tag-row"><span class="tag">Arduino</span><span class="tag">C++</span><span class="tag">Fusion 360</span><span class="tag">QTI Sensors</span><span class="tag">Servo</span><span class="tag">FDM</span></div>
-    <div class="hero-img"><img src="../assets/images/mech-robot.JPG" alt="Mechatronics robot" /></div>
+    <div class="hero-img"><img src="{{ '/assets/images/mech-robot.JPG' | relative_url }}" alt="Mechatronics robot" /></div>
   </div>
 </div>
 <div class="content"><div class="coming-soon">Full write-up coming soon.</div>

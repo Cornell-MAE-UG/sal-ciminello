@@ -1,9 +1,11 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Autonomous Rescue Drone — Sal Ciminello</title>
+  <title>Autonomous Rescue Drone, Sal Ciminello</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -36,7 +38,7 @@
     .content ul { padding-left: 1.4rem; margin-bottom: 1rem; }
     .content li { font-size: 15px; color: var(--text-2); line-height: 1.8; }
     .content hr { border: none; border-top: 0.5px solid var(--border); margin: 2.5rem 0; }
-    .coming-soon { text-align: center; padding: 4rem 2rem; color: var(--text-3); font-size: 14px; border: 0.5px dashed var(--border-md); border-radius: var(--radius); margin-top: 1rem; }
+    .coming-soon { text-align: center; padding: 2.5rem 2rem; color: var(--text-3); font-size: 14px; border: 0.5px dashed var(--border-md); border-radius: var(--radius); margin-bottom: 1.5rem; }
     footer { border-top: 0.5px solid var(--border); padding: 2rem 2.5rem; }
     .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-3); }
     .footer-links { display: flex; gap: 1.5rem; }
@@ -47,48 +49,90 @@
 </head>
 <body>
 <nav>
-  <a href="../index.html" class="nav-logo">Sal Ciminello</a>
+  <a href="{{ '/index.html' | relative_url }}" class="nav-logo">Sal Ciminello</a>
   <div class="nav-links">
-    <a href="../index.html">Home</a>
-    <a href="../projects.html">Projects</a>
-    <a href="../cv.html">CV</a>
+    <a href="{{ '/index.html' | relative_url }}">Home</a>
+    <a href="{{ '/projects.html' | relative_url }}">Projects</a>
+    <a href="{{ '/cv.html' | relative_url }}">CV</a>
   </div>
 </nav>
-<div class="back-bar"><a href="../projects.html" class="back-link">← All projects</a></div>
+<div class="back-bar"><a href="{{ '/projects.html' | relative_url }}" class="back-link">← All projects</a></div>
 
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Autonomy &nbsp;·&nbsp; Personal Project</div>
-    <h1 class="hero-title"><strong>Autonomous</strong> Rescue Drone <span style="font-size: 0.5em; color: var(--text-3); font-weight: 400;">(in assembly)</span></h1>
-    <p class="hero-desc">A ~24" autonomous quadcopter designed around a life-ring form factor for water rescue. Custom 3D-printed shell over an F450 frame — currently soldering ESC power leads and motor connections, with the power module still to be installed before the frame closes.</p>
-    <img src="../assets/images/drone-prototype.JPG" alt="Drone prototype in assembly" class="hero-img">
+    <h1 class="hero-title"><strong>Autonomous</strong> Rescue Drone <span style="font-size: 0.5em; color: var(--text-3); font-weight: 400;">(V1 flown, V2 in progress)</span></h1>
+    <p class="hero-desc">An autonomous quadcopter built to search for and deliver a life ring to a person in the water, faster than a human swimmer or boat could reach them. V1 is a self-designed, 3D-printed quadcopter built to F450 reference dimensions on ArduPilot and a Pixhawk 6C Mini. It flew and held stable, controlled flight as a bare airframe, then flipped when carrying a real life ring due to insufficient thrust margin. That result is driving the V2 rebuild: an eight-motor octocopter with more than double the propulsion capacity.</p>
+    <img src="{{ '/assets/images/drone-prototype.JPG' | relative_url }}" alt="Drone prototype in assembly" class="hero-img">
     <div class="tag-row">
-      <span class="tag">ArduPilot</span><span class="tag">Pixhawk 6C Mini</span><span class="tag">Raspberry Pi</span><span class="tag">MAVLink</span><span class="tag">DroneKit</span><span class="tag">MAVSDK</span><span class="tag">Fusion 360</span>
+      <span class="tag">ArduPilot</span><span class="tag">Pixhawk 6C Mini</span><span class="tag">Raspberry Pi</span><span class="tag">MAVLink</span><span class="tag">DroneKit</span><span class="tag">ANSYS CFD</span><span class="tag">Fusion 360</span>
     </div>
   </div>
 </div>
 
 <div class="content">
-  <div class="coming-soon">Full write-up coming soon — build log, CAD, and autonomy stack walkthrough on the way.</div>
 
   <h2>Concept</h2>
-  <p>The idea came from thinking about water rescue response time. A drone that can autonomously navigate to a person in distress and deploy a life ring is faster than any human swimmer or boat in most scenarios. This project is the engineering proof-of-concept for that idea.</p>
+  <p>Each year, more than 4,500 people drown in the United States, a rate that has risen since 2019 rather than continued the multi-decade decline that came before it. That works out to roughly one drowning every two hours. Rip currents alone are responsible for over 100 of those fatal drownings annually and account for roughly 80% of all rescues performed on surf beaches. Over the past three decades (1991 to 2021), US beaches have recorded 2,747 unguarded drowning deaths against just 559 guarded drowning deaths, a gap that makes the case for lifeguard coverage on its own.</p>
+  <p>This project is intended to help close that gap in a cost-effective way, using drone technology and autonomous systems to extend what a lifeguard can see and reach. It was partly inspired by an autonomous boat that rescued two stranded pilots in the Strait of Hormuz in June 2026, proof that autonomous marine rescue platforms can already operate in real, high-stakes conditions.</p>
 
-  <h2>Hardware Stack</h2>
+  <h2>The Gap</h2>
+  <p>Today, beach safety relies on hiring lifeguards to watch the water, giving them surfboards or jet skis to close distance quickly, and binoculars to help spot people in trouble from a fixed vantage point. All of that takes time, and time is exactly what a drowning person does not have: someone, especially a child, can lose consciousness in as little as 20 to 60 seconds and be swept under by a current.</p>
+  <p>A lifeguard actually swimming out to reach someone 50 meters offshore takes over a minute in simulated rescue conditions, on top of however long it takes to first spot the person and reach the water's edge. My drone is built to compress that timeline: it monitors the water autonomously so lifeguards are not limited to whatever a fixed viewpoint and binoculars can catch, then flies to someone in danger and deploys a life ring directly. A drone flying at 30+ mph covers that same 50 meters roughly 10 times faster than a lifeguard swimming it at 2 to 3 mph, on top of the better vantage point from altitude and the ability to watch an entire coastline for hazards like rip currents or larger events like a tsunami.</p>
+  <p>For beaches that do not have a lifeguard at all, which is 60 to 70% of US beaches, the current options are closing the beach entirely or leaving people to swim unsupervised and at their own risk. This project is aimed at that gap specifically: giving unguarded and thinly-staffed beaches a cheap way to add real water coverage.</p>
+
+  <h2>Version 1: Minimal Viable Product</h2>
+
+  <p>As an engineering proof of concept, before getting into the weeds of automation, I first built what I called a minimal viable product, essentially a quadcopter with the ability to be controlled and fly with stability, as soon as possible.</p>
+
+  <h3>Frame Reference</h3>
+  <p>The first thing I looked at was the range of weights for drones already on the market, to get a sense of a reasonable no-load structural weight and rough dimensions to target. Consumer drones typically weigh between 250g and 900g, while commercial platforms like the DJI Matrice 350 RTK, one of the leading search-and-rescue-capable platforms, weigh around 3.8kg as a bare airframe (closer to 6.5kg fully loaded with its dual-battery system) and carry a maximum payload of 2.7kg. Using these as a reference, I selected the F450 as my baseline frame, a well-documented, 450mm-wheelbase quadcopter frame weighing 282g with a rated takeoff weight between 800g and 1600g, and replicated its dimensions in my own 3D-printed parts at a similar scale. That 282g reference was close to what I was already targeting, and the 800 to 1600g takeoff range became the number I used to select the propulsion system.</p>
+
+  <h3>Propulsion &amp; Power Budget</h3>
+  <p>For propulsion, since I was targeting that 800 to 1600g range, I selected A2212 1000KV brushless motors, rated at roughly 400g of thrust each with a conventional 10x4.5 inch propeller. I paired those with a 4S 5000mAh LiPo battery, weighing about 492g. That battery holds roughly 74Wh at nominal voltage, and this class of motor, prop, and battery combination typically draws somewhere in the 12 to 20A range at hover for a build in this weight class, which puts realistic hover endurance closer to 12 to 18 minutes empty, dropping well below that as throttle and payload increase. That is a ballpark from typical current draw for this motor class, not a bench-measured number, and nowhere near the 30 minutes I first guessed. ArduPilot logs battery current directly, so I will have a real, flight-tested number once I start pulling telemetry.</p>
+  <p>Adding it up: 492g (battery) + 280g (frame) + 200g (motors, 50g each x 4) + 100g (wiring and other electronics) + 100g (flight computer, conservative) came to about 1,172g before any payload. Budgeting an additional 500g of payload put the target takeoff weight at roughly 1,672g, near the top of the F450's rated 800 to 1600g range. That felt like a reasonable, if optimistic, place to start before ordering anything.</p>
+
+  <h3>Fabrication Approach</h3>
+  <p>Going into ordering, I decided to fabricate several components on my own 3D printer rather than buy them, which let me design around my own CAD models and iterate quickly on parts as I refined them through analysis. This was especially true for the overall shell structure and the propellers, where I could adjust angle of attack, blade length, and chord distribution once the CFD analysis was complete.</p>
+
+  <h3>Electronics &amp; Flight Controller</h3>
+  <p>For parts I did order, I bought a power distribution board for the F450 baseframe, which let me solder the power regulator directly to the ESCs and hold everything together rigidly rather than relying on a deformable plastic print. I also ordered a pack of four ESCs to regulate the phase of current going into the motors, which is what lets you control motor speed without an encoder or separate RPM sensor.</p>
+  <p>Finally, I ordered a Pixhawk 6C Mini flight controller rather than building my own. A flight controller has to close its attitude control loop at rates on the order of hundreds of Hz, reading the IMU, fusing it into an orientation estimate, and correcting motor output fast enough to catch a disturbance before it becomes a crash. A general-purpose board like a Raspberry Pi is not built for that: its OS scheduler optimizes for throughput, not determinism, so loop timing can jitter unpredictably under load. That is fine for a companion computer doing path planning or vision work, but it is a real liability for the inner stabilization loop, where late corrections stack up and cost you control margin. Building my own would have meant reimplementing sensor fusion, failsafe logic, and control tuning that ArduPilot has already had years of flight-testing behind it. The Pixhawk runs a dedicated real-time OS purpose-built for exactly this, so I bought that reliability rather than re-deriving it myself.</p>
+
+  <h3>Communications</h3>
+  <p>For the command-and-control link, I used ExpressLRS (ELRS), an open-source, high-refresh-rate RC protocol built specifically for this problem. It runs on the 2.4GHz ISM band (2.400 to 2.480GHz), paired here as a RadioMaster Pocket transmitter with a RadioMaster RP1 nano receiver on the Pixhawk's TELEM2 port, communicating over CRSF at a configurable refresh rate up to 500Hz. I picked 2.4GHz over the 900MHz long-range alternative because this vehicle's operational radius, rescue scenarios close to shore, does not need 900MHz's extra range, and 2.4GHz gives lower latency, which matters more for close-in stabilization and manual override authority.</p>
+
+  <h3>Where V1 Landed</h3>
+  <p>V1 flew and held stable, controlled flight as a bare airframe, proof that the frame, motor selection, and Pixhawk/ArduPilot control loop all worked as intended. It flipped, however, when carrying a real life ring weighing roughly 6 lbs, well beyond the 500g payload budget used to size the propulsion system above. The four-motor thrust budget did not have the margin for a rescue-scale payload, which is what is driving the move to an eight-motor configuration.</p>
+  <div class="coming-soon">Full results write-up (flight data, failure analysis) coming soon.</div>
+
+  <hr>
+
+  <h2>Version 2: Octocopter Redesign</h2>
+  <p>V2 converts the airframe to an octocopter to close the thrust margin V1 was missing. The build doubles the motor and ESC count and adds the GPS module needed for any autonomous flight:</p>
   <ul>
-    <li>F450 frame extended to ~24" diameter with custom 3D printed arm extensions</li>
-    <li>Holybro Pixhawk 6C Mini running ArduPilot</li>
-    <li>Raspberry Pi companion computer for high-level autonomy</li>
-    <li>A2212 brushless motors with BLHeli_S ESCs</li>
-    <li>4S LiPo power system</li>
-    <li>RadioMaster Pocket ELRS for RC control</li>
+    <li>8x A2212 1000KV motors (4 more added to the original 4)</li>
+    <li>8x HGLRC 30A BLHeli_S OPTO ESCs (4 more added to the original 4)</li>
+    <li>8-in-1 XT60 power distribution board</li>
+    <li>Holybro M9N GPS module</li>
+    <li>Extra 1045 propellers</li>
+    <li>Custom 3D-printed octocopter frame: carbon fiber tubes for arms, carbon-fiber-PLA hub and motor mounts</li>
+    <li>Buck converter to power a Raspberry Pi 4 companion computer directly from the flight battery</li>
   </ul>
 
+  <hr>
+
+  <h2>Propeller CFD Study</h2>
+  <p>Running a CFD study in ANSYS on the 1045 propellers across three cases: a smooth commercial prop, an FDM-printed prop with realistic surface roughness (about 150 microns), and a 1.05x scaled printed prop. Using a rotating reference frame (MRF) approach with a k-omega SST turbulence model to compare how print quality and scale affect thrust and efficiency against the commercial baseline.</p>
+
+  <hr>
+
   <h2>Autonomy Stack</h2>
-  <p>Planned architecture: the Raspberry Pi will communicate with the Pixhawk over MAVLink via a serial connection, with high-level mission logic in Python using DroneKit and MAVSDK to handle waypoint navigation, position hold, and autonomous delivery sequences. Software architecture is designed; integration testing begins once hardware assembly is complete.</p>
+  <p>Planned architecture: a Raspberry Pi 4 companion computer communicates with the Pixhawk over MAVLink, running Python scripts through DroneKit to execute an autonomous search pattern, run computer vision person detection, and trigger payload deployment. The GPS module going into V2 is the critical missing piece that unblocks this: without it, there's no autonomous position reference for the Pi to navigate against.</p>
 
   <h2>Mechanical Design</h2>
-  <p>The life-ring form factor required extending the stock F450 frame from ~18" to ~24". Custom arm extension pieces were designed in Fusion 360 and printed on the Bambu P1S to maintain structural stiffness while adding the required diameter.</p>
+  <p>Rather than buying a stock F450 frame, I used its published dimensions as a reference and designed my own frame components from scratch in CAD, 3D printing them to match. That approach carried into the propellers as well, which are also custom-designed and printed rather than bought, which is what makes them a live subject for the CFD study above.</p>
+
 </div>
 
 <footer>

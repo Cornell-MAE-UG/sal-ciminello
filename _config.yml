@@ -22,9 +22,6 @@ color_scheme: light # light/default, dark, or aqua
 sass:
   style: compressed
 
-# Outputting
-permalink: pretty
-
 collections:
   projects:
     output: true

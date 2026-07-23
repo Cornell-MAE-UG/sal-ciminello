@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects — Sal Ciminello</title>
+  <title>Projects, Sal Ciminello</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -102,11 +102,11 @@
 <body>
 
 <nav>
-  <a href="/sal-ciminello/index.html" class="nav-logo">Sal Ciminello</a>
+  <a href="{{ '/index.html' | relative_url }}" class="nav-logo">Sal Ciminello</a>
   <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="projects.html" class="active">Projects</a>
-    <a href="cv.html">CV</a>
+    <a href="{{ '/index.html' | relative_url }}" class="{% if page.url == '/index.html' %}active{% endif %}">Home</a>
+    <a href="{{ '/projects.html' | relative_url }}" class="{% if page.url == '/projects.html' %}active{% endif %}">Projects</a>
+    <a href="{{ '/cv.html' | relative_url }}" class="{% if page.url == '/cv.html' %}active{% endif %}">CV</a>
   </div>
 </nav>
 
@@ -123,7 +123,7 @@
     <div class="section-eyebrow">Featured projects</div>
     <div class="projects-grid">
 
-      <a href="_projects/robotic-arm.html" class="project-card">
+      <a href="{{ '/projects/robotic-arm/' | relative_url }}" class="project-card">
 <img src="assets/images/arm-prototype.JPG" alt="6 DOF robotic arm prototype" class="project-card-img" style="object-fit:contain;">
         <div class="project-card-body">
           <div class="project-card-tag">Robotics &nbsp;·&nbsp; Personal</div>
@@ -135,19 +135,19 @@
         </div>
       </a>
 
-     <a href="_projects/drone.html" class="project-card">
+     <a href="{{ '/projects/drone/' | relative_url }}" class="project-card">
         <img src="assets/images/drone-prototype.JPG" alt="Autonomous rescue drone prototype" class="project-card-img">
         <div class="project-card-body">
           <div class="project-card-tag">Autonomy &nbsp;·&nbsp; Personal</div>
-          <div class="project-card-title">Autonomous Rescue Drone (in assembly)</div>
-          <div class="project-card-desc">~24" quadcopter on ArduPilot + Pixhawk 6C Mini with Raspberry Pi companion computer running DroneKit/MAVSDK. Life-ring form factor for water rescue. Currently wiring power distribution and ESCs.</div>
+          <div class="project-card-title">Autonomous Rescue Drone (V1 flown, V2 in progress)</div>
+          <div class="project-card-desc">Self-designed, 3D-printed quadcopter on ArduPilot + Pixhawk 6C Mini. V1 flew and held stable flight, then flipped carrying a real life ring due to insufficient thrust, now rebuilding as an eight-motor octocopter.</div>
         </div>
         <div class="project-card-footer">
           <span class="tag">ArduPilot</span><span class="tag">MAVLink</span><span class="tag">DroneKit</span><span class="tag">Pixhawk</span>
         </div>
       </a>
 
-      <a href="_projects/hyperloop-levitation.html" class="project-card">
+      <a href="{{ '/projects/hyperloop-levitation/' | relative_url }}" class="project-card">
         <img src="assets/images/lev_circuit.JPG" alt="EM Levitation" class="project-card-img" />
         <div class="project-card-body">
           <div class="project-card-tag">Controls &nbsp;·&nbsp; Cornell Hyperloop</div>
@@ -159,7 +159,7 @@
         </div>
       </a>
 
-      <a href="_projects/passivity-system.html" class="project-card">
+      <a href="{{ '/projects/passivity-system/' | relative_url }}" class="project-card">
         <img src="assets/images/passive_fullpod.png" alt="Passivity System" class="project-card-img" />
         <div class="project-card-body">
           <div class="project-card-tag">Mechanical Design &nbsp;·&nbsp; Cornell Hyperloop</div>
@@ -171,7 +171,7 @@
         </div>
       </a>
 
-      <a href="_projects/mechatronics-robot.html" class="project-card">
+      <a href="{{ '/projects/mechatronics-robot/' | relative_url }}" class="project-card">
         <img src="assets/images/mech-robot.JPG" alt="Mechatronics Robot" class="project-card-img" />
         <div class="project-card-body">
           <div class="project-card-tag">Mechatronics &nbsp;·&nbsp; Cornell</div>
@@ -183,7 +183,7 @@
         </div>
       </a>
 
-      <a href="_projects/biomechanics.html" class="project-card">
+      <a href="{{ '/projects/biomechanics/' | relative_url }}" class="project-card">
         <img src="assets/images/cs1_lunge.gif" alt="Biomechanics" class="project-card-img" style="object-fit:contain; padding: 1rem;" />
         <div class="project-card-body">
           <div class="project-card-tag">Dynamics &nbsp;·&nbsp; Cornell</div>
@@ -195,7 +195,7 @@
         </div>
       </a>
 
-      <a href="_projects/skate-constraints.html" class="project-card">
+      <a href="{{ '/projects/skate-constraints/' | relative_url }}" class="project-card">
         <img src="assets/images/skate.JPG" alt="Skate Constraints" class="project-card-img" />
         <div class="project-card-body">
           <div class="project-card-tag">Dynamics &nbsp;·&nbsp; Cornell</div>
@@ -207,7 +207,7 @@
         </div>
       </a>
 
-      <a href="_projects/senior-design.html" class="project-card">
+      <a href="{{ '/projects/senior-design/' | relative_url }}" class="project-card">
         <img src="assets/images/4021turbine.png" alt="Senior Design" class="project-card-img" />
         <div class="project-card-body">
           <div class="project-card-tag">Aerodynamics &nbsp;·&nbsp; Cornell</div>
@@ -229,7 +229,7 @@
     <div class="section-eyebrow">Other works</div>
     <div class="projects-grid">
 
-      <a href="projects/turbine-design.html" class="project-card">
+      <a href="{{ '/projects/turbine-design/' | relative_url }}" class="project-card">
         <img src="assets/images/turbine_tunnel.png" alt="Turbine Design" class="project-card-img" />
         <div class="project-card-body">
           <div class="project-card-tag">Aerodynamics &nbsp;·&nbsp; Cornell</div>
@@ -238,18 +238,6 @@
         </div>
         <div class="project-card-footer">
           <span class="tag">BEM</span><span class="tag">Matlab</span><span class="tag">Fusion 360</span><span class="tag">Wind Tunnel</span>
-        </div>
-      </a>
-
-      <a href="projects/boeing-ethics.html" class="project-card">
-        <img src="assets/images/Alaska_737_Max_9.jpg" alt="Boeing Ethics" class="project-card-img" />
-        <div class="project-card-body">
-          <div class="project-card-tag">Engineering Ethics &nbsp;·&nbsp; Cornell</div>
-          <div class="project-card-title">Boeing 737 MAX Ethics Analysis</div>
-          <div class="project-card-desc">Ethical analysis of the 737 MAX crashes through the lens of ASME engineering canons — accountability, safety, and organizational failure.</div>
-        </div>
-        <div class="project-card-footer">
-          <span class="tag">Ethics</span><span class="tag">ASME Canons</span><span class="tag">Engineering Safety</span>
         </div>
       </a>
 

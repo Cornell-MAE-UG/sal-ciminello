@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,21 +53,21 @@
 </head>
 <body>
 <nav>
-  <a href="../index.html" class="nav-logo">Sal Ciminello</a>
+  <a href="{{ '/index.html' | relative_url }}" class="nav-logo">Sal Ciminello</a>
   <div class="nav-links">
-    <a href="../index.html">Home</a>
-    <a href="../projects.html">Projects</a>
-    <a href="../cv.html">CV</a>
+    <a href="{{ '/index.html' | relative_url }}">Home</a>
+    <a href="{{ '/projects.html' | relative_url }}">Projects</a>
+    <a href="{{ '/cv.html' | relative_url }}">CV</a>
   </div>
 </nav>
-<div class="back-bar"><a href="../projects.html" class="back-link">← All projects</a></div>
+<div class="back-bar"><a href="{{ '/projects.html' | relative_url }}" class="back-link">← All projects</a></div>
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Rigid Body Dynamics &nbsp;·&nbsp; Cornell MAE</div>
     <h1 class="hero-title"><strong>Biomechanics</strong> Study</h1>
     <p class="hero-desc">Modeling rigid body human motion using Differential Algebraic Equations (DAE method). Simulating and analyzing kinematic chains representative of real human movement.</p>
     <div class="tag-row"><span class="tag">Matlab</span><span class="tag">DAE Method</span><span class="tag">Rigid Body Dynamics</span><span class="tag">Differential Equations</span></div>
-    <div class="hero-img" style="background:var(--bg-muted); padding: 2rem; text-align:center;"><img src="../assets/images/cs1_lunge.gif" alt="Lunge biomechanics simulation" style="max-height:360px; width:auto; margin:0 auto;" /></div>
+    <div class="hero-img" style="background:var(--bg-muted); padding: 2rem; text-align:center;"><img src="{{ '/assets/images/cs1_lunge.gif' | relative_url }}" alt="Lunge biomechanics simulation" style="max-height:360px; width:auto; margin:0 auto;" /></div>
   </div>
 </div>
 <div class="content"><div class="coming-soon">Full write-up coming soon.</div>

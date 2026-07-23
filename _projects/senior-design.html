@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,14 +52,14 @@
 </head>
 <body>
 <nav>
-  <a href="../index.html" class="nav-logo">Sal Ciminello</a>
+  <a href="{{ '/index.html' | relative_url }}" class="nav-logo">Sal Ciminello</a>
   <div class="nav-links">
-    <a href="../index.html">Home</a>
-    <a href="../projects.html">Projects</a>
-    <a href="../cv.html">CV</a>
+    <a href="{{ '/index.html' | relative_url }}">Home</a>
+    <a href="{{ '/projects.html' | relative_url }}">Projects</a>
+    <a href="{{ '/cv.html' | relative_url }}">CV</a>
   </div>
 </nav>
-<div class="back-bar"><a href="../projects.html" class="back-link">← All projects</a></div>
+<div class="back-bar"><a href="{{ '/projects.html' | relative_url }}" class="back-link">← All projects</a></div>
 
 <div class="hero">
   <div class="hero-inner">
@@ -67,7 +69,7 @@
     <div class="tag-row">
       <span class="tag">BEM Theory</span><span class="tag">ANSYS Fluent</span><span class="tag">Matlab</span><span class="tag">Fusion 360</span><span class="tag">Aerodynamics</span>
     </div>
-    <div class="hero-img"><img src="../assets/images/4021turbine.png" alt="Wind turbine senior design" /></div>
+    <div class="hero-img"><img src="{{ '/assets/images/4021turbine.png' | relative_url }}" alt="Wind turbine senior design" /></div>
   </div>
 </div>
 
@@ -95,7 +97,7 @@
 
   <hr />
 
-  <img src="../assets/images/mae4021_flowfield.png" alt="CFD flow field visualization" />
+  <img src="{{ '/assets/images/mae4021_flowfield.png' | relative_url }}" alt="CFD flow field visualization" />
   <p style="font-size: 13px; color: var(--text-3); margin-top: -0.5rem;">CFD visualization showing flow structure and loading trends across the three-bladed turbine geometry.</p>
 
   <hr />
@@ -108,7 +110,7 @@
   </ul>
 
   <div style="margin-top: 2rem;">
-    <a href="../assets/Senior_Design_Project.pdf" class="btn" target="_blank">Download Full Report (PDF, 35 pages)</a>
+    <a href="{{ '/assets/Senior_Design_Project.pdf' | relative_url }}" class="btn" target="_blank">Download Full Report (PDF, 35 pages)</a>
   </div>
 </div>
 
